@@ -30,6 +30,7 @@ import net.meteorneo.systems.modules.movement.NoFall;
 import net.meteorneo.systems.modules.movement.NoSlow;
 import net.meteorneo.systems.modules.movement.Parkour;
 import net.meteorneo.systems.modules.movement.SafeWalk;
+import net.meteorneo.systems.modules.movement.Scaffold;
 import net.meteorneo.systems.modules.movement.Spider;
 import net.meteorneo.systems.modules.movement.Speed;
 import net.meteorneo.systems.modules.movement.Sprint;
@@ -47,6 +48,7 @@ import net.meteorneo.systems.modules.world.AntiCactus;
 import net.meteorneo.systems.modules.world.AutoBreed;
 import net.meteorneo.systems.modules.world.AutoFarm;
 import net.meteorneo.systems.modules.world.AutoMine;
+import net.meteorneo.systems.modules.world.BaseFinder;
 import net.minecraft.client.Minecraft;
 
 import java.util.ArrayList;
@@ -86,6 +88,7 @@ public final class Modules {
         register(new AutoLog());
         register(new AutoMine());
         register(new AutoRespawn());
+        register(new BaseFinder());
         register(new AutoSword());
         register(new AutoTool());
         register(new AutoTotem());
@@ -107,6 +110,7 @@ public final class Modules {
         register(new Notifications());
         register(new Parkour());
         register(new SafeWalk());
+        register(new Scaffold());
         register(new Spider());
         register(new Speed());
         register(new Sprint());
