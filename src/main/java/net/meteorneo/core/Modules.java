@@ -1,6 +1,9 @@
 package net.meteorneo.core;
 
+import net.meteorneo.systems.modules.combat.AutoArmor;
+import net.meteorneo.systems.modules.combat.AutoSword;
 import net.meteorneo.systems.modules.combat.AutoTotem;
+import net.meteorneo.systems.modules.combat.Criticals;
 import net.meteorneo.systems.modules.combat.KillAura;
 import net.meteorneo.systems.modules.movement.AirJump;
 import net.meteorneo.systems.modules.movement.AutoJump;
@@ -27,8 +30,11 @@ public final class Modules {
     /** Bootstrap: register every module instance. */
     public static void init() {
         register(new AirJump());
+        register(new AutoArmor());
         register(new AutoJump());
+        register(new AutoSword());
         register(new AutoTotem());
+        register(new Criticals());
         register(new Flight());
         register(new KillAura());
         register(new NoFall());
