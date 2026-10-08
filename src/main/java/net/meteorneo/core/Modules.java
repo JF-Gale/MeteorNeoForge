@@ -1,5 +1,7 @@
 package net.meteorneo.core;
 
+import net.meteorneo.systems.modules.combat.AutoTotem;
+import net.meteorneo.systems.modules.combat.KillAura;
 import net.meteorneo.systems.modules.movement.AirJump;
 import net.meteorneo.systems.modules.movement.AutoJump;
 import net.meteorneo.systems.modules.movement.Flight;
@@ -26,7 +28,9 @@ public final class Modules {
     public static void init() {
         register(new AirJump());
         register(new AutoJump());
+        register(new AutoTotem());
         register(new Flight());
+        register(new KillAura());
         register(new NoFall());
         register(new Speed());
         register(new Sprint());
