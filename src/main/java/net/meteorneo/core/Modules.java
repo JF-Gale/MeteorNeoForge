@@ -41,6 +41,7 @@ import net.meteorneo.systems.modules.player.AutoEat;
 import net.meteorneo.systems.modules.player.AutoRespawn;
 import net.meteorneo.systems.modules.player.AutoTool;
 import net.meteorneo.systems.modules.player.FastUse;
+import net.meteorneo.systems.modules.player.GhostHand;
 import net.meteorneo.systems.modules.player.Sneak;
 import net.meteorneo.systems.modules.render.Fullbright;
 import net.meteorneo.systems.modules.world.AirPlace;
@@ -49,6 +50,7 @@ import net.meteorneo.systems.modules.world.AutoBreed;
 import net.meteorneo.systems.modules.world.AutoFarm;
 import net.meteorneo.systems.modules.world.AutoMine;
 import net.meteorneo.systems.modules.world.BaseFinder;
+import net.meteorneo.systems.modules.world.StashFinder;
 import net.minecraft.client.Minecraft;
 
 import java.util.ArrayList;
@@ -89,6 +91,7 @@ public final class Modules {
         register(new AutoMine());
         register(new AutoRespawn());
         register(new BaseFinder());
+        register(new StashFinder());
         register(new AutoSword());
         register(new AutoTool());
         register(new AutoTotem());
@@ -104,6 +107,7 @@ public final class Modules {
         register(new HoleFiller());
         register(new KillAura());
         register(new Sneak());
+        register(new GhostHand());
         register(new LongJump());
         register(new NoFall());
         register(new NoSlow());
