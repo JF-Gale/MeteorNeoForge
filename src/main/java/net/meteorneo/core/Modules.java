@@ -7,10 +7,12 @@ import net.meteorneo.systems.modules.combat.Criticals;
 import net.meteorneo.systems.modules.combat.KillAura;
 import net.meteorneo.systems.modules.movement.AirJump;
 import net.meteorneo.systems.modules.movement.AutoJump;
+import net.meteorneo.systems.modules.movement.AutoWalk;
 import net.meteorneo.systems.modules.movement.Flight;
 import net.meteorneo.systems.modules.movement.NoFall;
 import net.meteorneo.systems.modules.movement.Speed;
 import net.meteorneo.systems.modules.movement.Sprint;
+import net.meteorneo.systems.modules.render.Fullbright;
 import net.minecraft.client.Minecraft;
 
 import java.util.ArrayList;
@@ -34,8 +36,10 @@ public final class Modules {
         register(new AutoJump());
         register(new AutoSword());
         register(new AutoTotem());
+        register(new AutoWalk());
         register(new Criticals());
         register(new Flight());
+        register(new Fullbright());
         register(new KillAura());
         register(new NoFall());
         register(new Speed());
