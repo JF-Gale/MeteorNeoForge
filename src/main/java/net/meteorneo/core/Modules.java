@@ -11,6 +11,7 @@ import net.meteorneo.systems.modules.combat.KillAura;
 import net.meteorneo.systems.modules.misc.Announcer;
 import net.meteorneo.systems.modules.misc.AutoLog;
 import net.meteorneo.systems.modules.misc.Notifications;
+import net.meteorneo.systems.modules.misc.Spammer;
 import net.meteorneo.systems.modules.movement.AirJump;
 import net.meteorneo.systems.modules.movement.AntiVoid;
 import net.meteorneo.systems.modules.movement.AutoJump;
@@ -20,6 +21,7 @@ import net.meteorneo.systems.modules.movement.ElytraFly;
 import net.meteorneo.systems.modules.movement.Flight;
 import net.meteorneo.systems.modules.movement.LongJump;
 import net.meteorneo.systems.modules.movement.NoFall;
+import net.meteorneo.systems.modules.movement.NoSlow;
 import net.meteorneo.systems.modules.movement.Parkour;
 import net.meteorneo.systems.modules.movement.SafeWalk;
 import net.meteorneo.systems.modules.movement.Spider;
@@ -85,6 +87,7 @@ public final class Modules {
         register(new KillAura());
         register(new LongJump());
         register(new NoFall());
+        register(new NoSlow());
         register(new Notifications());
         register(new Parkour());
         register(new SafeWalk());
@@ -92,6 +95,7 @@ public final class Modules {
         register(new Speed());
         register(new Sprint());
         register(new Step());
+        register(new Spammer());
     }
 
     private static void register(Module module) {
