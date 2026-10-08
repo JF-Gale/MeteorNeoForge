@@ -40,7 +40,7 @@ public class AutoEat extends Module {
         }
         for (int i = 0; i < 9; i++) {
             ItemStack stack = player.getInventory().getItem(i);
-            if (stack.has(DataComponents.CONSUMABLE)) {
+            if (stack.has(DataComponents.FOOD)) {
                 if (player.getInventory().selected != i) {
                     player.getInventory().selected = i;
                 }
