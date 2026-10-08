@@ -21,7 +21,7 @@ public class BunnyHop extends Module {
             return;
         }
         if (player.onGround() && player.zza > 0.0f) {
-            player.jump();
+            player.jumpFromGround();
         }
     }
 }
