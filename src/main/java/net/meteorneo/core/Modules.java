@@ -17,6 +17,7 @@ import net.meteorneo.systems.modules.misc.Announcer;
 import net.meteorneo.systems.modules.misc.AutoFish;
 import net.meteorneo.systems.modules.misc.AutoLog;
 import net.meteorneo.systems.modules.misc.Notifications;
+import net.meteorneo.systems.modules.misc.Panic;
 import net.meteorneo.systems.modules.misc.Spammer;
 import net.meteorneo.systems.modules.movement.AirJump;
 import net.meteorneo.systems.modules.movement.AntiVoid;
@@ -40,6 +41,7 @@ import net.meteorneo.systems.modules.player.AntiAFK;
 import net.meteorneo.systems.modules.player.AntiLevitation;
 import net.meteorneo.systems.modules.player.AutoEat;
 import net.meteorneo.systems.modules.player.AutoRespawn;
+import net.meteorneo.systems.modules.player.AutoSteal;
 import net.meteorneo.systems.modules.player.AutoTool;
 import net.meteorneo.systems.modules.player.ChestStealer;
 import net.meteorneo.systems.modules.player.FastUse;
@@ -95,6 +97,7 @@ public final class Modules {
         register(new AutoMine());
         register(new AutoTrap());
         register(new AutoRespawn());
+        register(new AutoSteal());
         register(new BaseFinder());
         register(new StashFinder());
         register(new SpawnProofer());
@@ -128,10 +131,16 @@ public final class Modules {
         register(new Step());
         register(new Strafe());
         register(new Spammer());
+        register(new Panic());
     }
 
     private static void register(Module module) {
         MODULES.add(module);
+    }
+
+    /** All registered modules. */
+    public static List<Module> getAll() {
+        return Collections.unmodifiableList(MODULES);
     }
 
     /** Advance every enabled module by one client tick. */
