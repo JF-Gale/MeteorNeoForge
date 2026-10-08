@@ -1,5 +1,7 @@
 package net.meteorneo.core;
 
+import net.meteorneo.systems.modules.combat.AimAssist;
+import net.meteorneo.systems.modules.combat.AntiAim;
 import net.meteorneo.systems.modules.combat.AutoArmor;
 import net.meteorneo.systems.modules.combat.AutoSword;
 import net.meteorneo.systems.modules.combat.AutoTotem;
@@ -47,9 +49,11 @@ public final class Modules {
 
     /** Bootstrap: register every module instance. */
     public static void init() {
+        register(new AimAssist());
         register(new AirJump());
         register(new AirPlace());
         register(new AntiAFK());
+        register(new AntiAim());
         register(new AntiCactus());
         register(new AntiLevitation());
         register(new AntiVoid());
