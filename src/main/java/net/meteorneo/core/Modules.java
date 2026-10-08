@@ -5,6 +5,7 @@ import net.meteorneo.systems.modules.combat.AntiAim;
 import net.meteorneo.systems.modules.combat.AutoArmor;
 import net.meteorneo.systems.modules.combat.AutoSword;
 import net.meteorneo.systems.modules.combat.AutoTotem;
+import net.meteorneo.systems.modules.combat.BowAim;
 import net.meteorneo.systems.modules.combat.Criticals;
 import net.meteorneo.systems.modules.combat.KillAura;
 import net.meteorneo.systems.modules.misc.Announcer;
@@ -32,6 +33,7 @@ import net.meteorneo.systems.modules.player.FastUse;
 import net.meteorneo.systems.modules.render.Fullbright;
 import net.meteorneo.systems.modules.world.AirPlace;
 import net.meteorneo.systems.modules.world.AntiCactus;
+import net.meteorneo.systems.modules.world.AutoFarm;
 import net.meteorneo.systems.modules.world.AutoMine;
 import net.minecraft.client.Minecraft;
 
@@ -62,6 +64,7 @@ public final class Modules {
         register(new Announcer());
         register(new AutoArmor());
         register(new AutoEat());
+        register(new AutoFarm());
         register(new AutoJump());
         register(new AutoLog());
         register(new AutoMine());
@@ -70,6 +73,7 @@ public final class Modules {
         register(new AutoTool());
         register(new AutoTotem());
         register(new AutoWalk());
+        register(new BowAim());
         register(new BunnyHop());
         register(new Criticals());
         register(new FastUse());
