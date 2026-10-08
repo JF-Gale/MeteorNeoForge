@@ -26,7 +26,9 @@ import net.meteorneo.systems.modules.player.AutoRespawn;
 import net.meteorneo.systems.modules.player.AutoTool;
 import net.meteorneo.systems.modules.player.FastUse;
 import net.meteorneo.systems.modules.render.Fullbright;
+import net.meteorneo.systems.modules.world.AirPlace;
 import net.meteorneo.systems.modules.world.AntiCactus;
+import net.meteorneo.systems.modules.world.AutoMine;
 import net.minecraft.client.Minecraft;
 
 import java.util.ArrayList;
@@ -46,6 +48,7 @@ public final class Modules {
     /** Bootstrap: register every module instance. */
     public static void init() {
         register(new AirJump());
+        register(new AirPlace());
         register(new AntiAFK());
         register(new AntiCactus());
         register(new AntiLevitation());
@@ -54,6 +57,7 @@ public final class Modules {
         register(new AutoEat());
         register(new AutoJump());
         register(new AutoLog());
+        register(new AutoMine());
         register(new AutoRespawn());
         register(new AutoSword());
         register(new AutoTool());
