@@ -4,6 +4,7 @@ import net.meteorneo.core.Category;
 import net.meteorneo.core.Module;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
 
 /**
@@ -39,7 +40,7 @@ public class AutoEat extends Module {
         }
         for (int i = 0; i < 9; i++) {
             ItemStack stack = player.getInventory().getItem(i);
-            if (stack.getItem().isEdible()) {
+            if (stack.has(DataComponents.CONSUMABLE)) {
                 if (player.getInventory().selected != i) {
                     player.getInventory().selected = i;
                 }
