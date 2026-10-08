@@ -1,6 +1,9 @@
 package net.meteorneo.core;
 
+import net.meteorneo.systems.modules.movement.AirJump;
+import net.meteorneo.systems.modules.movement.AutoJump;
 import net.meteorneo.systems.modules.movement.Flight;
+import net.meteorneo.systems.modules.movement.NoFall;
 import net.meteorneo.systems.modules.movement.Speed;
 import net.meteorneo.systems.modules.movement.Sprint;
 import net.minecraft.client.Minecraft;
@@ -21,7 +24,10 @@ public final class Modules {
 
     /** Bootstrap: register every module instance. */
     public static void init() {
+        register(new AirJump());
+        register(new AutoJump());
         register(new Flight());
+        register(new NoFall());
         register(new Speed());
         register(new Sprint());
     }
