@@ -35,6 +35,7 @@ import net.meteorneo.systems.modules.movement.Spider;
 import net.meteorneo.systems.modules.movement.Speed;
 import net.meteorneo.systems.modules.movement.Sprint;
 import net.meteorneo.systems.modules.movement.Step;
+import net.meteorneo.systems.modules.movement.Strafe;
 import net.meteorneo.systems.modules.player.AntiAFK;
 import net.meteorneo.systems.modules.player.AntiLevitation;
 import net.meteorneo.systems.modules.player.AutoEat;
@@ -50,6 +51,7 @@ import net.meteorneo.systems.modules.world.AntiCactus;
 import net.meteorneo.systems.modules.world.AutoBreed;
 import net.meteorneo.systems.modules.world.AutoFarm;
 import net.meteorneo.systems.modules.world.AutoMine;
+import net.meteorneo.systems.modules.world.AutoTrap;
 import net.meteorneo.systems.modules.world.BaseFinder;
 import net.meteorneo.systems.modules.world.SpawnProofer;
 import net.meteorneo.systems.modules.world.StashFinder;
@@ -91,6 +93,7 @@ public final class Modules {
         register(new AutoJump());
         register(new AutoLog());
         register(new AutoMine());
+        register(new AutoTrap());
         register(new AutoRespawn());
         register(new BaseFinder());
         register(new StashFinder());
@@ -123,6 +126,7 @@ public final class Modules {
         register(new Speed());
         register(new Sprint());
         register(new Step());
+        register(new Strafe());
         register(new Spammer());
     }
 
