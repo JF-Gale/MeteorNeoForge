@@ -56,6 +56,8 @@ import net.meteorneo.systems.modules.world.AutoMine;
 import net.meteorneo.systems.modules.world.AutoTrap;
 import net.meteorneo.systems.modules.world.BaseFinder;
 import net.meteorneo.systems.modules.world.HighwayBuilder;
+import net.meteorneo.systems.modules.world.InstantMine;
+import net.meteorneo.systems.modules.world.Nuker;
 import net.meteorneo.systems.modules.world.Reap;
 import net.meteorneo.systems.modules.world.SpawnProofer;
 import net.meteorneo.systems.modules.world.StashFinder;
@@ -104,6 +106,8 @@ public final class Modules {
         register(new BaseFinder());
         register(new StashFinder());
         register(new SpawnProofer());
+        register(new InstantMine());
+        register(new Nuker());
         register(new Reap());
         register(new AutoSword());
         register(new AutoTool());
