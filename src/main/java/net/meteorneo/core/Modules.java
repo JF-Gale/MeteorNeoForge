@@ -12,6 +12,8 @@ import net.meteorneo.systems.modules.movement.Flight;
 import net.meteorneo.systems.modules.movement.NoFall;
 import net.meteorneo.systems.modules.movement.Speed;
 import net.meteorneo.systems.modules.movement.Sprint;
+import net.meteorneo.systems.modules.player.AutoEat;
+import net.meteorneo.systems.modules.player.AutoTool;
 import net.meteorneo.systems.modules.render.Fullbright;
 import net.minecraft.client.Minecraft;
 
@@ -33,8 +35,10 @@ public final class Modules {
     public static void init() {
         register(new AirJump());
         register(new AutoArmor());
+        register(new AutoEat());
         register(new AutoJump());
         register(new AutoSword());
+        register(new AutoTool());
         register(new AutoTotem());
         register(new AutoWalk());
         register(new Criticals());
