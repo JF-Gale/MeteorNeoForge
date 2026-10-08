@@ -1,0 +1,42 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '1.0.11'
+}
+
+version = '0.1.0'
+group = 'net.meteorneo'
+
+base {
+    archivesName = 'meteor-neoforge'
+}
+
+// NeoForge 1.21.1 requires Java 21
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+repositories {
+    // Aliyun mirror speeds up common dependencies (Maven Central proxy).
+    maven {
+        name = 'Aliyun'
+        url = 'https://maven.aliyun.com/repository/public'
+    }
+    mavenCentral()
+    // The official NeoForge repo MUST be kept: mirrors do not fully sync NeoForge artifacts.
+    maven {
+        name = 'NeoForged'
+        url = 'https://maven.neoforged.net/releases/'
+    }
+}
+
+neoForge {
+    // NeoForge version for Minecraft 1.21.1 (21.1.x line)
+    version = '21.1.221'
+
+    runs {
+        client {
+            client()
+        }
+        server {
+            server()
+        }
+    }
+}

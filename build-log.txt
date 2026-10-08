@@ -1,0 +1,63 @@
+﻿To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.8/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :
+Build was configured to prefer settings repositories over project repositories but repository 'Mojang Minecraft Libraries' was added by plugin class 'net.neoforged.moddevgradle.internal.RepositoriesPlugin'
+Build was configured to prefer settings repositories over project repositories but repository 'Mojang Minecraft Libraries' was added by plugin class 'net.neoforged.moddevgradle.internal.RepositoriesPlugin'
+Build was configured to prefer settings repositories over project repositories but repository 'Mojang Meta' was added by plugin class 'net.neoforged.moddevgradle.internal.RepositoriesPlugin'
+Build was configured to prefer settings repositories over project repositories but repository 'Mojang Meta' was added by plugin class 'net.neoforged.moddevgradle.internal.RepositoriesPlugin'
+Build was configured to prefer settings repositories over project repositories but repository 'NeoForged Releases' was added by plugin class 'net.neoforged.moddevgradle.internal.RepositoriesPlugin'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo' was added by build file 'build.gradle'
+
+> Task :createArtifactManifest FAILED
+gradle.bat : 
+所在位置 行:4 字符: 1
++ & "C:\Users\Gale\Doubao\chats\2026-10-08\new-chat\gradle-tools\gradle ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':createArtifactManifest'.
+> Error while evaluating property 'neoForgeModDevArtifacts' of task ':createArtifactManifest'.
+   > Failed to calculate the value of task ':createArtifactManifest' property 'neoForgeModDevArtifacts'.
+      > Could not resolve all artifacts for configuration ':neoFormRuntimeDependenciesCompileClasspath'.
+         > Could not find net.neoforged.fancymodloader:loader:4.0.42.
+           Searched in the following locations:
+             - https://repo.maven.apache.org/maven2/net/neoforged/fancymodloader/loader/4.0.42/loader-4.0.42.pom
+             - https://mirror4.nyist.edu.cn/bmclapi/net/neoforged/fancymodloader/loader/4.0.42/loader-4.0.42.pom
+           Required by:
+               project : > net.neoforged:neoforge:21.1.221
+         > Could not find net.neoforged.fancymodloader:earlydisplay:4.0.42.
+           Searched in the following locations:
+             - https://repo.maven.apache.org/maven2/net/neoforged/fancymodloader/earlydisplay/4.0.42/earlydisplay-4.0.4
+2.pom
+             - https://mirror4.nyist.edu.cn/bmclapi/net/neoforged/fancymodloader/earlydisplay/4.0.42/earlydisplay-4.0.4
+2.pom
+           Required by:
+               project : > net.neoforged:neoforge:21.1.221
+         > Could not find cpw.mods:modlauncher:11.0.5.
+           Searched in the following locations:
+             - https://repo.maven.apache.org/maven2/cpw/mods/modlauncher/11.0.5/modlauncher-11.0.5.pom
+             - https://mirror4.nyist.edu.cn/bmclapi/cpw/mods/modlauncher/11.0.5/modlauncher-11.0.5.pom
+           Required by:
+               project : > net.neoforged:neoforge:21.1.221
+         > Could not find net.neoforged:minecraft-dependencies:1.21.1.
+           Searched in the following locations:
+             - https://repo.maven.apache.org/maven2/net/neoforged/minecraft-dependencies/1.21.1/minecraft-dependencies-
+1.21.1.pom
+             - https://mirror4.nyist.edu.cn/bmclapi/net/neoforged/minecraft-dependencies/1.21.1/minecraft-dependencies-
+1.21.1.pom
+           Required by:
+               project : > net.neoforged:neoforge:21.1.221 > net.neoforged:neoform:1.21.1-20240808.144430
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 21s
+1 actionable task: 1 executed
