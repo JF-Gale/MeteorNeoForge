@@ -31,7 +31,7 @@ public class AimAssist extends Module {
             if (e == player || !(e instanceof LivingEntity)) {
                 continue;
             }
-            if (e.isDeadOrDying()) {
+            if (((LivingEntity) e).isDeadOrDying()) {
                 continue;
             }
             double dist = player.distanceToSqr(e);
