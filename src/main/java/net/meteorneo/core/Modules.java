@@ -8,8 +8,10 @@ import net.meteorneo.systems.modules.combat.AutoArmor;
 import net.meteorneo.systems.modules.combat.AutoCity;
 import net.meteorneo.systems.modules.combat.AutoSword;
 import net.meteorneo.systems.modules.combat.AutoTotem;
+import net.meteorneo.systems.modules.combat.AutoWeb;
 import net.meteorneo.systems.modules.combat.BowAim;
 import net.meteorneo.systems.modules.combat.Criticals;
+import net.meteorneo.systems.modules.combat.HoleFiller;
 import net.meteorneo.systems.modules.combat.KillAura;
 import net.meteorneo.systems.modules.misc.Announcer;
 import net.meteorneo.systems.modules.misc.AutoFish;
@@ -88,6 +90,7 @@ public final class Modules {
         register(new AutoTool());
         register(new AutoTotem());
         register(new AutoWalk());
+        register(new AutoWeb());
         register(new BowAim());
         register(new BunnyHop());
         register(new Criticals());
@@ -95,6 +98,7 @@ public final class Modules {
         register(new FastUse());
         register(new Flight());
         register(new Fullbright());
+        register(new HoleFiller());
         register(new KillAura());
         register(new Sneak());
         register(new LongJump());
