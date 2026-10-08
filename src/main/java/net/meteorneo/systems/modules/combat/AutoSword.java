@@ -25,20 +25,14 @@ public class AutoSword extends Module {
         if (!mc.options.keyAttack.isDown()) {
             return;
         }
-        int bestSlot = -1;
-        float bestDamage = -1.0f;
+        // Switch to the first sword found in the hotbar while attacking.
         for (int i = 0; i < 9; i++) {
-            ItemStack stack = player.getInventory().getItem(i);
-            if (stack.getItem() instanceof SwordItem sword) {
-                float damage = sword.getDamage();
-                if (damage > bestDamage) {
-                    bestDamage = damage;
-                    bestSlot = i;
+            if (player.getInventory().getItem(i).getItem() instanceof SwordItem) {
+                if (player.getInventory().selected != i) {
+                    player.getInventory().selected = i;
                 }
+                break;
             }
-        }
-        if (bestSlot >= 0 && bestSlot != player.getInventory().selected) {
-            player.getInventory().selected = bestSlot;
         }
     }
 }
