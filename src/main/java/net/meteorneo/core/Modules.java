@@ -7,7 +7,9 @@ import net.meteorneo.systems.modules.combat.AutoSword;
 import net.meteorneo.systems.modules.combat.AutoTotem;
 import net.meteorneo.systems.modules.combat.Criticals;
 import net.meteorneo.systems.modules.combat.KillAura;
+import net.meteorneo.systems.modules.misc.Announcer;
 import net.meteorneo.systems.modules.misc.AutoLog;
+import net.meteorneo.systems.modules.misc.Notifications;
 import net.meteorneo.systems.modules.movement.AirJump;
 import net.meteorneo.systems.modules.movement.AntiVoid;
 import net.meteorneo.systems.modules.movement.AutoJump;
@@ -57,6 +59,7 @@ public final class Modules {
         register(new AntiCactus());
         register(new AntiLevitation());
         register(new AntiVoid());
+        register(new Announcer());
         register(new AutoArmor());
         register(new AutoEat());
         register(new AutoJump());
@@ -74,6 +77,7 @@ public final class Modules {
         register(new Fullbright());
         register(new KillAura());
         register(new NoFall());
+        register(new Notifications());
         register(new Parkour());
         register(new SafeWalk());
         register(new Spider());
