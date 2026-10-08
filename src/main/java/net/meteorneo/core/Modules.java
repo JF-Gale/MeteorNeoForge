@@ -2,6 +2,8 @@ package net.meteorneo.core;
 
 import net.meteorneo.systems.modules.combat.AimAssist;
 import net.meteorneo.systems.modules.combat.AntiAim;
+import net.meteorneo.systems.modules.combat.AntiAnvil;
+import net.meteorneo.systems.modules.combat.AntiBed;
 import net.meteorneo.systems.modules.combat.AutoArmor;
 import net.meteorneo.systems.modules.combat.AutoCity;
 import net.meteorneo.systems.modules.combat.AutoSword;
@@ -66,6 +68,8 @@ public final class Modules {
         register(new AirPlace());
         register(new AntiAFK());
         register(new AntiAim());
+        register(new AntiAnvil());
+        register(new AntiBed());
         register(new AntiCactus());
         register(new AntiLevitation());
         register(new AntiVoid());
