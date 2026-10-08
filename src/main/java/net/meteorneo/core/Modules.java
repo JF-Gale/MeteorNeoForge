@@ -15,8 +15,10 @@ import net.meteorneo.systems.modules.movement.Flight;
 import net.meteorneo.systems.modules.movement.NoFall;
 import net.meteorneo.systems.modules.movement.Parkour;
 import net.meteorneo.systems.modules.movement.SafeWalk;
+import net.meteorneo.systems.modules.movement.Spider;
 import net.meteorneo.systems.modules.movement.Speed;
 import net.meteorneo.systems.modules.movement.Sprint;
+import net.meteorneo.systems.modules.movement.Step;
 import net.meteorneo.systems.modules.player.AntiAFK;
 import net.meteorneo.systems.modules.player.AntiLevitation;
 import net.meteorneo.systems.modules.player.AutoEat;
@@ -66,8 +68,10 @@ public final class Modules {
         register(new NoFall());
         register(new Parkour());
         register(new SafeWalk());
+        register(new Spider());
         register(new Speed());
         register(new Sprint());
+        register(new Step());
     }
 
     private static void register(Module module) {
