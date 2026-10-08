@@ -10,9 +10,11 @@ import net.meteorneo.systems.modules.movement.AutoJump;
 import net.meteorneo.systems.modules.movement.AutoWalk;
 import net.meteorneo.systems.modules.movement.Flight;
 import net.meteorneo.systems.modules.movement.NoFall;
+import net.meteorneo.systems.modules.movement.SafeWalk;
 import net.meteorneo.systems.modules.movement.Speed;
 import net.meteorneo.systems.modules.movement.Sprint;
 import net.meteorneo.systems.modules.player.AutoEat;
+import net.meteorneo.systems.modules.player.AutoRespawn;
 import net.meteorneo.systems.modules.player.AutoTool;
 import net.meteorneo.systems.modules.render.Fullbright;
 import net.minecraft.client.Minecraft;
@@ -37,6 +39,7 @@ public final class Modules {
         register(new AutoArmor());
         register(new AutoEat());
         register(new AutoJump());
+        register(new AutoRespawn());
         register(new AutoSword());
         register(new AutoTool());
         register(new AutoTotem());
@@ -46,6 +49,7 @@ public final class Modules {
         register(new Fullbright());
         register(new KillAura());
         register(new NoFall());
+        register(new SafeWalk());
         register(new Speed());
         register(new Sprint());
     }
