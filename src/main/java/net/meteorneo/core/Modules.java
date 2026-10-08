@@ -13,10 +13,12 @@ import net.meteorneo.systems.modules.movement.NoFall;
 import net.meteorneo.systems.modules.movement.SafeWalk;
 import net.meteorneo.systems.modules.movement.Speed;
 import net.meteorneo.systems.modules.movement.Sprint;
+import net.meteorneo.systems.modules.player.AntiAFK;
 import net.meteorneo.systems.modules.player.AutoEat;
 import net.meteorneo.systems.modules.player.AutoRespawn;
 import net.meteorneo.systems.modules.player.AutoTool;
 import net.meteorneo.systems.modules.render.Fullbright;
+import net.meteorneo.systems.modules.world.AntiCactus;
 import net.minecraft.client.Minecraft;
 
 import java.util.ArrayList;
@@ -36,6 +38,8 @@ public final class Modules {
     /** Bootstrap: register every module instance. */
     public static void init() {
         register(new AirJump());
+        register(new AntiAFK());
+        register(new AntiCactus());
         register(new AutoArmor());
         register(new AutoEat());
         register(new AutoJump());
