@@ -9,7 +9,7 @@ import net.minecraft.client.Minecraft;
  */
 public class FOV extends Module {
 
-    private double originalFov = -1;
+    private int originalFov = -1;
 
     public FOV() {
         super("FOV", Category.RENDER);
@@ -20,7 +20,7 @@ public class FOV extends Module {
         if (originalFov < 0) {
             originalFov = mc.options.fov().get();
         }
-        mc.options.fov().set(110.0);
+        mc.options.fov().set(110);
     }
 
     @Override
