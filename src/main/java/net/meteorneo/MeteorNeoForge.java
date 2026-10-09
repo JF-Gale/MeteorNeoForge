@@ -47,8 +47,17 @@ public class MeteorNeoForge {
         Minecraft mc = Minecraft.getInstance();
         while (OPEN_GUI.consumeClick()) {
             ClickGUI gui = Modules.get(ClickGUI.class);
-            if (gui != null && !gui.isEnabled()) {
-                gui.setEnabled(true);
+            if (gui == null) {
+                break;
+            }
+            // Reopen the panel on every key press while no screen is open,
+            // regardless of the ClickGUI module's enabled state.
+            if (mc.screen == null) {
+                if (!gui.isEnabled()) {
+                    gui.setEnabled(true); // onEnable() opens the screen
+                } else {
+                    mc.setScreen(new ClickGUI.ClickGuiScreen());
+                }
             }
         }
         if (mc.level == null || mc.player == null) {
