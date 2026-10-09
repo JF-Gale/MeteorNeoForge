@@ -7,7 +7,6 @@ import net.meteorneo.core.ZhNames;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.components.Label;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
@@ -34,6 +33,8 @@ public class ClickGUI extends Module {
 
     public static class ClickGuiScreen extends Screen {
 
+        private final java.util.List<int[]> catTitles = new java.util.ArrayList<>();
+
         public ClickGuiScreen() {
             super(Component.literal("MeteorNeoForge ClickGUI"));
         }
@@ -55,12 +56,7 @@ public class ClickGUI extends Module {
                 int cx = margin + c * (cw + pad);
                 int cy = top + r * (ch + pad);
 
-                addRenderableWidget(Label.builder(
-                        Component.literal(ZhNames.cat(cat.getName()) + " (" + countOf(cat) + ")"),
-                        Minecraft.getInstance().font)
-                        .pos(cx + 4, cy)
-                        .color(0xFFB0BEC5)
-                        .build());
+                catTitles.add(new int[]{cx + 4, cy, idx});
 
                 List<Module> list = modulesOf(cat);
                 int count = list.size();
@@ -101,6 +97,12 @@ public class ClickGUI extends Module {
         @Override
         public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
             super.render(guiGraphics, mouseX, mouseY, partialTick);
+            for (int[] t : catTitles) {
+                Category cat = Category.values()[t[2]];
+                guiGraphics.drawString(Minecraft.getInstance().font,
+                        Component.literal(ZhNames.cat(cat.getName()) + " (" + countOf(cat) + ")"),
+                        t[0], t[1], 0xFFB0BEC5);
+            }
         }
     }
 
