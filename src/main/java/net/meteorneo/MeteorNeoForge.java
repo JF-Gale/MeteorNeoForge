@@ -7,6 +7,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
+import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 
 @Mod(MeteorNeoForge.MOD_ID)
 public class MeteorNeoForge {
@@ -27,5 +28,14 @@ public class MeteorNeoForge {
             return;
         }
         Modules.tick(mc);
+    }
+
+    @SubscribeEvent
+    public void onRenderWorld(RenderLevelStageEvent event) {
+        if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_SOLID_BLOCKS) {
+            return;
+        }
+        Minecraft mc = Minecraft.getInstance();
+        Modules.renderWorld(mc, event.getPoseStack(), event.getPartialTick());
     }
 }

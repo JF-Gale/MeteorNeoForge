@@ -2,6 +2,7 @@ package net.meteorneo.core;
 
 import net.meteorneo.systems.settings.Setting;
 import net.minecraft.client.Minecraft;
+import com.mojang.blaze3d.vertex.PoseStack;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -71,5 +72,9 @@ public abstract class Module {
 
     /** Called every client tick while the module is enabled. */
     public void onTick(Minecraft mc) {
+    }
+
+    /** Called every world render frame while the module is enabled. */
+    public void onRenderWorld(Minecraft mc, PoseStack poseStack, float partialTick) {
     }
 }

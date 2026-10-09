@@ -64,6 +64,7 @@ import net.meteorneo.systems.modules.player.MiddleClick;
 import net.meteorneo.systems.modules.player.NoInteract;
 import net.meteorneo.systems.modules.player.Sneak;
 import net.meteorneo.systems.modules.player.XCarry;
+import net.meteorneo.systems.modules.render.BlockOutline;
 import net.meteorneo.systems.modules.render.Fullbright;
 import net.meteorneo.systems.modules.world.AirPlace;
 import net.meteorneo.systems.modules.world.AntiCactus;
@@ -150,6 +151,7 @@ public final class Modules {
         register(new FastUse());
         register(new Flight());
         register(new FreeLook());
+        register(new BlockOutline());
         register(new Fullbright());
         register(new HoleFiller());
         register(new KillAura());
@@ -193,6 +195,15 @@ public final class Modules {
         for (Module module : MODULES) {
             if (module.isEnabled()) {
                 module.onTick(mc);
+            }
+        }
+    }
+
+    /** Invoke every enabled module's world render hook. */
+    public static void renderWorld(Minecraft mc, com.mojang.blaze3d.vertex.PoseStack poseStack, float partialTick) {
+        for (Module module : MODULES) {
+            if (module.isEnabled()) {
+                module.onRenderWorld(mc, poseStack, partialTick);
             }
         }
     }
