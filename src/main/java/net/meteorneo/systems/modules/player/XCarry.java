@@ -23,7 +23,7 @@ public class XCarry extends Module {
         }
         if (mc.screen instanceof AbstractContainerScreen<?> screen) {
             for (int i = 0; i < screen.getMenu().slots.size(); i++) {
-                if (!screen.getMenu().slots.get(i).isEmpty()) {
+                if (screen.getMenu().slots.get(i).hasItem()) {
                     screen.getMenu().quickMoveStack(player, i);
                 }
             }
