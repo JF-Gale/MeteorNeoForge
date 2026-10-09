@@ -28,10 +28,13 @@ public class MeteorNeoForge {
     public MeteorNeoForge(IEventBus modBus) {
         // Register the module registry (framework bootstrap).
         Modules.init();
-        // Listen to client game events on the game bus.
-        NeoForge.EVENT_BUS.register(this);
-        // Listen to mod-lifecycle events (key binding registration) on the mod bus.
-        modBus.register(this);
+        // Mod-bus events (key binding registration) must be registered on the mod bus only.
+        modBus.addListener(this::onKeyMapping);
+        // Client game events belong to the game bus. Register each individually so no
+        // mod-bus handler is ever scanned by the game bus (and vice versa).
+        NeoForge.EVENT_BUS.addListener(this::onClientTick);
+        NeoForge.EVENT_BUS.addListener(this::onRenderWorld);
+        NeoForge.EVENT_BUS.addListener(this::onChat);
     }
 
     @SubscribeEvent
