@@ -40,15 +40,15 @@ public class ChunkESP extends Module {
         Matrix4f matrix = poseStack.last().pose();
 
         // Top face at player height
-        addLine(buffer, matrix, x0 - camX, y - camY, z0 - camZ, x1 - camX, y - camY, z0 - camZ);
-        addLine(buffer, matrix, x1 - camX, y - camY, z0 - camZ, x1 - camX, y - camY, z1 - camZ);
-        addLine(buffer, matrix, x1 - camX, y - camY, z1 - camZ, x0 - camX, y - camY, z1 - camZ);
-        addLine(buffer, matrix, x0 - camX, y - camY, z1 - camZ, x0 - camX, y - camY, z0 - camZ);
+        addLine(buffer, matrix, x0, y, z0, x1, y, z0);
+        addLine(buffer, matrix, x1, y, z0, x1, y, z1);
+        addLine(buffer, matrix, x1, y, z1, x0, y, z1);
+        addLine(buffer, matrix, x0, y, z1, x0, y, z0);
         // Vertical edges down to world bottom
-        addLine(buffer, matrix, x0 - camX, y - camY, z0 - camZ, x0 - camX, -camY, z0 - camZ);
-        addLine(buffer, matrix, x1 - camX, y - camY, z0 - camZ, x1 - camX, -camY, z0 - camZ);
-        addLine(buffer, matrix, x1 - camX, y - camY, z1 - camZ, x1 - camX, -camY, z1 - camZ);
-        addLine(buffer, matrix, x0 - camX, y - camY, z1 - camZ, x0 - camX, -camY, z1 - camZ);
+        addLine(buffer, matrix, x0, y, z0, x0, 0, z0);
+        addLine(buffer, matrix, x1, y, z0, x1, 0, z0);
+        addLine(buffer, matrix, x1, y, z1, x1, 0, z1);
+        addLine(buffer, matrix, x0, y, z1, x0, 0, z1);
 
         buffers.endBatch();
     }

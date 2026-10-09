@@ -43,8 +43,8 @@ public class RedESP extends Module {
                     if (state.is(Blocks.REDSTONE_WIRE) || state.is(Blocks.REDSTONE_BLOCK)
                             || state.is(Blocks.REPEATER) || state.is(Blocks.COMPARATOR)) {
                         drawBox(buffer, matrix,
-                                (float) (pos.getX() - camX), (float) (pos.getY() - camY), (float) (pos.getZ() - camZ),
-                                (float) (pos.getX() + 1 - camX), (float) (pos.getY() + 1 - camY), (float) (pos.getZ() + 1 - camZ));
+                                (float) (pos.getX()), (float) (pos.getY()), (float) (pos.getZ()),
+                                (float) (pos.getX() + 1), (float) (pos.getY() + 1), (float) (pos.getZ() + 1));
                     }
                 }
             }

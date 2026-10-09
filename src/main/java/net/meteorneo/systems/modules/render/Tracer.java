@@ -35,9 +35,9 @@ public class Tracer extends Module {
         VertexConsumer buffer = buffers.getBuffer(RenderType.lines());
         Matrix4f matrix = poseStack.last().pose();
 
-        float px = (float) (player.getX() - camX);
-        float py = (float) (player.getY() + player.getEyeHeight() - camY);
-        float pz = (float) (player.getZ() - camZ);
+        float px = (float) (player.getX());
+        float py = (float) (player.getY() + player.getEyeHeight());
+        float pz = (float) (player.getZ());
 
         for (Entity entity : mc.level.entitiesForRendering()) {
             if (!(entity instanceof LivingEntity living)) {
@@ -46,9 +46,9 @@ public class Tracer extends Module {
             if (living == player) {
                 continue;
             }
-            float ex = (float) (entity.getX() - camX);
-            float ey = (float) (entity.getY() + entity.getEyeHeight() - camY);
-            float ez = (float) (entity.getZ() - camZ);
+            float ex = (float) (entity.getX());
+            float ey = (float) (entity.getY() + entity.getEyeHeight());
+            float ez = (float) (entity.getZ());
             buffer.addVertex(matrix, px, py, pz).setColor(0, 255, 255, 255).setNormal(0.0f, 1.0f, 0.0f);
             buffer.addVertex(matrix, ex, ey, ez).setColor(0, 255, 255, 255).setNormal(0.0f, 1.0f, 0.0f);
         }

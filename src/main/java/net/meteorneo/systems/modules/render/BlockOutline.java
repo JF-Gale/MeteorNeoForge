@@ -35,7 +35,7 @@ public class BlockOutline extends Module {
         double camZ = mc.gameRenderer.getMainCamera().getPosition().z;
 
         poseStack.pushPose();
-        poseStack.translate(pos.getX() - camX, pos.getY() - camY, pos.getZ() - camZ);
+        poseStack.translate(pos.getX(), pos.getY(), pos.getZ());
 
         MultiBufferSource.BufferSource buffers = mc.renderBuffers().bufferSource();
         VertexConsumer buffer = buffers.getBuffer(RenderType.lines());

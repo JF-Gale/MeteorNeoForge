@@ -47,8 +47,8 @@ public class CityESP extends Module {
                     Block block = mc.level.getBlockState(pos).getBlock();
                     if (block instanceof BedBlock || block == Blocks.RESPAWN_ANCHOR) {
                         drawBox(buffer, matrix,
-                                (float) (pos.getX() - camX), (float) (pos.getY() - camY), (float) (pos.getZ() - camZ),
-                                (float) (pos.getX() + 1 - camX), (float) (pos.getY() + 1 - camY), (float) (pos.getZ() + 1 - camZ));
+                                (float) (pos.getX()), (float) (pos.getY()), (float) (pos.getZ()),
+                                (float) (pos.getX() + 1), (float) (pos.getY() + 1), (float) (pos.getZ() + 1));
                     }
                 }
             }

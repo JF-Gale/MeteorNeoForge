@@ -45,8 +45,8 @@ public class ESP extends Module {
             }
             AABB box = entity.getBoundingBox();
             drawBox(buffer, matrix,
-                    (float) (box.minX - camX), (float) (box.minY - camY), (float) (box.minZ - camZ),
-                    (float) (box.maxX - camX), (float) (box.maxY - camY), (float) (box.maxZ - camZ));
+                    (float) (box.minX), (float) (box.minY), (float) (box.minZ),
+                    (float) (box.maxX), (float) (box.maxY), (float) (box.maxZ));
         }
         buffers.endBatch();
     }

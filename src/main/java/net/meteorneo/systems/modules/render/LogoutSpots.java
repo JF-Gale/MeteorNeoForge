@@ -63,9 +63,9 @@ public class LogoutSpots extends Module {
         Matrix4f matrix = poseStack.last().pose();
 
         for (Vec3 v : spots.values()) {
-            float x = (float) (v.x - camX);
-            float y = (float) (v.y - camY);
-            float z = (float) (v.z - camZ);
+            float x = (float) (v.x);
+            float y = (float) (v.y);
+            float z = (float) (v.z);
             drawBox(buffer, matrix, x, y, z, x + 0.5f, y + 1.8f, z + 0.5f);
         }
         buffers.endBatch();

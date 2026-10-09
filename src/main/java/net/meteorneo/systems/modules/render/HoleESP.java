@@ -41,8 +41,8 @@ public class HoleESP extends Module {
                 pos.set(center.getX() + x, center.getY(), center.getZ() + z);
                 if (isHole(mc, pos)) {
                     drawBox(buffer, matrix,
-                            (float) (pos.getX() - camX), (float) (pos.getY() - camY), (float) (pos.getZ() - camZ),
-                            (float) (pos.getX() + 1 - camX), (float) (pos.getY() + 0.1f - camY), (float) (pos.getZ() + 1 - camZ));
+                            (float) (pos.getX()), (float) (pos.getY()), (float) (pos.getZ()),
+                            (float) (pos.getX() + 1), (float) (pos.getY() + 0.1f), (float) (pos.getZ() + 1));
                 }
             }
         }

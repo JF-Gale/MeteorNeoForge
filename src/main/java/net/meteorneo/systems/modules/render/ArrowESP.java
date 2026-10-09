@@ -37,9 +37,9 @@ public class ArrowESP extends Module {
             if (!(entity instanceof AbstractArrow)) {
                 continue;
             }
-            float x = (float) (entity.getX() - camX);
-            float y = (float) (entity.getY() - camY);
-            float z = (float) (entity.getZ() - camZ);
+            float x = (float) (entity.getX());
+            float y = (float) (entity.getY());
+            float z = (float) (entity.getZ());
             drawBox(buffer, matrix, x - 0.1f, y - 0.1f, z - 0.1f, x + 0.1f, y + 0.3f, z + 0.1f);
         }
         buffers.endBatch();

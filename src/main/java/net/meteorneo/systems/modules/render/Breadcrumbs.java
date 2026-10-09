@@ -70,8 +70,8 @@ public class Breadcrumbs extends Module {
         for (int i = 0; i < points.size() - 1; i++) {
             Vec3 a = points.get(i);
             Vec3 b = points.get(i + 1);
-            buffer.addVertex(matrix, (float) (a.x - camX), (float) (a.y - camY), (float) (a.z - camZ)).setColor(0, 255, 255, 255).setNormal(0.0f, 1.0f, 0.0f);
-            buffer.addVertex(matrix, (float) (b.x - camX), (float) (b.y - camY), (float) (b.z - camZ)).setColor(0, 255, 255, 255).setNormal(0.0f, 1.0f, 0.0f);
+            buffer.addVertex(matrix, (float) (a.x), (float) (a.y), (float) (a.z)).setColor(0, 255, 255, 255).setNormal(0.0f, 1.0f, 0.0f);
+            buffer.addVertex(matrix, (float) (b.x), (float) (b.y), (float) (b.z)).setColor(0, 255, 255, 255).setNormal(0.0f, 1.0f, 0.0f);
         }
         buffers.endBatch();
     }

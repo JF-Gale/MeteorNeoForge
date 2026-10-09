@@ -42,9 +42,9 @@ public class ChinaHat extends Module {
             if (living == player) {
                 continue;
             }
-            float cx = (float) (entity.getX() - camX);
-            float cy = (float) (entity.getY() + entity.getEyeHeight() + 0.3f - camY);
-            float cz = (float) (entity.getZ() - camZ);
+            float cx = (float) (entity.getX());
+            float cy = (float) (entity.getY() + entity.getEyeHeight() + 0.3f);
+            float cz = (float) (entity.getZ());
             float radius = 0.35f;
             int segments = 24;
             for (int i = 0; i < segments; i++) {

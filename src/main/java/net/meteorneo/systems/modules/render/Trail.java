@@ -61,8 +61,8 @@ public class Trail extends Module {
         Vec3 prev = null;
         for (Vec3 p : points) {
             if (prev != null) {
-                buffer.addVertex(matrix, (float) (prev.x - camX), (float) (prev.y - camY), (float) (prev.z - camZ)).setColor(0, 255, 255, 255).setNormal(0.0f, 1.0f, 0.0f);
-                buffer.addVertex(matrix, (float) (p.x - camX), (float) (p.y - camY), (float) (p.z - camZ)).setColor(0, 255, 255, 255).setNormal(0.0f, 1.0f, 0.0f);
+                buffer.addVertex(matrix, (float) (prev.x), (float) (prev.y), (float) (prev.z)).setColor(0, 255, 255, 255).setNormal(0.0f, 1.0f, 0.0f);
+                buffer.addVertex(matrix, (float) (p.x), (float) (p.y), (float) (p.z)).setColor(0, 255, 255, 255).setNormal(0.0f, 1.0f, 0.0f);
             }
             prev = p;
         }
