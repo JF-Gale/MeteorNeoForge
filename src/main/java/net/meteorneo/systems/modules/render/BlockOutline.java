@@ -63,7 +63,7 @@ public class BlockOutline extends Module {
     }
 
     private void addLine(VertexConsumer buffer, Matrix4f matrix, float x1, float y1, float z1, float x2, float y2, float z2) {
-        buffer.vertex(matrix, x1, y1, z1).endVertex();
-        buffer.vertex(matrix, x2, y2, z2).endVertex();
+        buffer.addVertex(matrix, x1, y1, z1).endVertex();
+        buffer.addVertex(matrix, x2, y2, z2).endVertex();
     }
 }
