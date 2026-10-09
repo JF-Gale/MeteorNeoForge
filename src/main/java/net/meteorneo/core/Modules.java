@@ -68,6 +68,8 @@ import net.meteorneo.systems.modules.render.BlockOutline;
 import net.meteorneo.systems.modules.render.Breadcrumbs;
 import net.meteorneo.systems.modules.render.ESP;
 import net.meteorneo.systems.modules.render.Fullbright;
+import net.meteorneo.systems.modules.render.HoleESP;
+import net.meteorneo.systems.modules.render.LogoutSpots;
 import net.meteorneo.systems.modules.render.StorageESP;
 import net.meteorneo.systems.modules.render.Tracer;
 import net.meteorneo.systems.modules.world.AirPlace;
@@ -159,6 +161,8 @@ public final class Modules {
         register(new Breadcrumbs());
         register(new ESP());
         register(new Fullbright());
+        register(new HoleESP());
+        register(new LogoutSpots());
         register(new StorageESP());
         register(new Tracer());
         register(new HoleFiller());
