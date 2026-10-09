@@ -53,8 +53,8 @@ public class ChunkESP extends Module {
         buffers.endBatch();
     }
 
-    private void addLine(VertexConsumer buffer, Matrix4f m, float ax, float ay, float az, float bx, float by, float bz) {
-        buffer.addVertex(m, ax, ay, az);
-        buffer.addVertex(m, bx, by, bz);
+    private void addLine(VertexConsumer buffer, Matrix4f m, double ax, double ay, double az, double bx, double by, double bz) {
+        buffer.addVertex(m, (float) ax, (float) ay, (float) az);
+        buffer.addVertex(m, (float) bx, (float) by, (float) bz);
     }
 }
