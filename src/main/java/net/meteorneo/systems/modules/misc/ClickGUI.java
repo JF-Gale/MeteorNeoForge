@@ -3,6 +3,7 @@ package net.meteorneo.systems.modules.misc;
 import net.meteorneo.core.Category;
 import net.meteorneo.core.Module;
 import net.meteorneo.core.Modules;
+import net.meteorneo.core.ZhNames;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
@@ -54,7 +55,8 @@ public class ClickGUI extends Module {
                 int cx = margin + c * (cw + pad);
                 int cy = top + r * (ch + pad);
 
-                addRenderableWidget(Label.builder(Component.literal(cat.getName() + " (" + countOf(cat) + ")"),
+                addRenderableWidget(Label.builder(
+                        Component.literal(ZhNames.cat(cat.getName()) + " (" + countOf(cat) + ")"),
                         Minecraft.getInstance().font)
                         .pos(cx + 4, cy)
                         .color(0xFFB0BEC5)
@@ -108,7 +110,7 @@ public class ClickGUI extends Module {
         private final Module module;
 
         ToggleButton(Module module, int x, int y, int w, int h) {
-            super(x, y, w, h, Component.literal(module.getName()),
+            super(x, y, w, h, Component.literal(ZhNames.mod(module.getName())),
                     b -> module.toggle(), DEFAULT_NARRATION);
             this.module = module;
         }
@@ -126,7 +128,7 @@ public class ClickGUI extends Module {
             g.fill(getX(), getY(), getX() + getWidth(), getY() + 1, on ? 0xFF66BB6A : 0xFF90A4AE);
             int txtCol = on ? 0xFFE8F5E9 : 0xFFECEFF1;
             g.drawCenteredString(Minecraft.getInstance().font,
-                    Component.literal(module.getName()),
+                    Component.literal(ZhNames.mod(module.getName())),
                     getX() + getWidth() / 2,
                     getY() + (getHeight() - 8) / 2,
                     txtCol);
