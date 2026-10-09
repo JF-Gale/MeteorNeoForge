@@ -24,11 +24,12 @@ import net.meteorneo.systems.modules.misc.Announcer;
 import net.meteorneo.systems.modules.misc.AutoFish;
 import net.meteorneo.systems.modules.misc.AutoLog;
 import net.meteorneo.systems.modules.misc.Binds;
+import net.meteorneo.systems.modules.misc.Discord;
 import net.meteorneo.systems.modules.misc.Friend;
 import net.meteorneo.systems.modules.misc.Notifications;
 import net.meteorneo.systems.modules.misc.Panic;
 import net.meteorneo.systems.modules.misc.Spammer;
-import net.meteorneo.systems.modules.misc.Timer;
+import net.meteorneo.systems.modules.misc.Discord;
 import net.meteorneo.systems.modules.movement.AirJump;
 import net.meteorneo.systems.modules.movement.AntiVoid;
 import net.meteorneo.systems.modules.movement.Blink;
@@ -170,7 +171,7 @@ public final class Modules {
         register(new Step());
         register(new Strafe());
         register(new Spammer());
-        register(new Timer());
+        register(new Discord());
         register(new Panic());
     }
 
