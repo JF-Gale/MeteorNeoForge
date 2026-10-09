@@ -60,6 +60,7 @@ import net.meteorneo.systems.modules.player.AutoRespawn;
 import net.meteorneo.systems.modules.player.AutoSteal;
 import net.meteorneo.systems.modules.player.AutoTool;
 import net.meteorneo.systems.modules.player.ChestStealer;
+import net.meteorneo.systems.modules.player.EnderChest;
 import net.meteorneo.systems.modules.player.FastUse;
 import net.meteorneo.systems.modules.player.GhostHand;
 import net.meteorneo.systems.modules.player.InventorySort;
@@ -206,6 +207,7 @@ public final class Modules {
         register(new SelfTrap());
         register(new Surround());
         register(new ChestStealer());
+        register(new EnderChest());
         register(new Sneak());
         register(new XCarry());
         register(new GhostHand());
