@@ -35,6 +35,14 @@ public class ClickGUI extends Module {
     public static class ClickGuiScreen extends Screen {
 
         private Category selected = Category.COMBAT;
+        private int scrollOffset;
+        private final List<Button> moduleButtons = new ArrayList<>();
+
+        private static final int LIST_X = 6;
+        private static final int LIST_Y = 30;
+        private static final int ROW_H = 14;
+        private static final int MBW = 92;
+        private static final int MBH = 13;
 
         public ClickGuiScreen() {
             super(Component.literal("MeteorNeoForge ClickGUI"));
@@ -47,22 +55,57 @@ public class ClickGUI extends Module {
 
         private void select(Category cat) {
             selected = cat;
+            scrollOffset = 0;
             buildUi();
         }
 
         private void buildUi() {
             clearWidgets();
+            moduleButtons.clear();
             int bw = 92, bh = 16, gap = 2;
             int x = 6, y = 6;
             for (Category c : Category.values()) {
                 addRenderableWidget(new CatButton(c, this, x, y, bw, bh));
                 x += bw + gap;
             }
-            int mx = 6, my = 30, mbw = 92, mbh = 13, mgap = 1;
-            for (Module m : modulesOf(selected)) {
-                addRenderableWidget(new ToggleButton(m, mx, my, mbw, mbh));
-                my += mbh + mgap;
+            rebuildModuleButtons();
+        }
+
+        private void rebuildModuleButtons() {
+            for (Button b : moduleButtons) {
+                removeWidget(b);
             }
+            moduleButtons.clear();
+            List<Module> list = modulesOf(selected);
+            int listH = height - LIST_Y - 10;
+            int maxScroll = Math.max(0, list.size() * ROW_H - listH);
+            scrollOffset = Math.max(0, Math.min(scrollOffset, maxScroll));
+            int visible = Math.max(0, listH / ROW_H);
+            for (int i = 0; i < list.size(); i++) {
+                int by = LIST_Y + i * ROW_H - scrollOffset;
+                if (by < LIST_Y - MBH || by > LIST_Y + listH) {
+                    continue; // outside the visible list area
+                }
+                ToggleButton tb = new ToggleButton(list.get(i), LIST_X, by, MBW, MBH);
+                moduleButtons.add(tb);
+                addRenderableWidget(tb);
+            }
+        }
+
+        @Override
+        public boolean mouseScrolled(double mouseX, double mouseY, double scrollX, double scrollY) {
+            int listH = height - LIST_Y - 10;
+            List<Module> list = modulesOf(selected);
+            int maxScroll = Math.max(0, list.size() * ROW_H - listH);
+            if (maxScroll == 0) {
+                return false;
+            }
+            int before = scrollOffset;
+            scrollOffset = Math.max(0, Math.min(maxScroll, scrollOffset + (int) (scrollY * ROW_H)));
+            if (scrollOffset != before) {
+                rebuildModuleButtons();
+            }
+            return true;
         }
 
         private List<Module> modulesOf(Category cat) {
