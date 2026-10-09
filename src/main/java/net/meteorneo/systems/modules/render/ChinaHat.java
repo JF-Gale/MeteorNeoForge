@@ -50,12 +50,8 @@ public class ChinaHat extends Module {
             for (int i = 0; i < segments; i++) {
                 float a1 = (float) (i * 2.0 * Math.PI / segments);
                 float a2 = (float) ((i + 1) * 2.0 * Math.PI / segments);
-                buffer.setColor(0, 255, 255, 255);
-                buffer.setNormal(0.0f, 1.0f, 0.0f);
-                buffer.addVertex(matrix, cx + radius * (float) Math.cos(a1), cy, cz + radius * (float) Math.sin(a1));
-                buffer.setColor(0, 255, 255, 255);
-                buffer.setNormal(0.0f, 1.0f, 0.0f);
-                buffer.addVertex(matrix, cx + radius * (float) Math.cos(a2), cy, cz + radius * (float) Math.sin(a2));
+                buffer.addVertex(matrix, cx + radius * (float) Math.cos(a1), cy, cz + radius * (float) Math.sin(a1)).setColor(0, 255, 255, 255).setNormal(0.0f, 1.0f, 0.0f);
+                buffer.addVertex(matrix, cx + radius * (float) Math.cos(a2), cy, cz + radius * (float) Math.sin(a2)).setColor(0, 255, 255, 255).setNormal(0.0f, 1.0f, 0.0f);
             }
         }
         buffers.endBatch();

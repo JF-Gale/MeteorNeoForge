@@ -54,11 +54,7 @@ public class ChunkESP extends Module {
     }
 
     private void addLine(VertexConsumer buffer, Matrix4f m, double ax, double ay, double az, double bx, double by, double bz) {
-        buffer.setColor(0, 255, 255, 255);
-        buffer.setNormal(0.0f, 1.0f, 0.0f);
-        buffer.addVertex(m, (float) ax, (float) ay, (float) az);
-        buffer.setColor(0, 255, 255, 255);
-        buffer.setNormal(0.0f, 1.0f, 0.0f);
-        buffer.addVertex(m, (float) bx, (float) by, (float) bz);
+        buffer.addVertex(m, (float) ax, (float) ay, (float) az).setColor(0, 255, 255, 255).setNormal(0.0f, 1.0f, 0.0f);
+        buffer.addVertex(m, (float) bx, (float) by, (float) bz).setColor(0, 255, 255, 255).setNormal(0.0f, 1.0f, 0.0f);
     }
 }
