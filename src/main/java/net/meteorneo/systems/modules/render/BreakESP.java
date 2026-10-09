@@ -61,7 +61,11 @@ public class BreakESP extends Module {
     }
 
     private void addLine(VertexConsumer buffer, Matrix4f m, float ax, float ay, float az, float bx, float by, float bz) {
+        buffer.setColor(0, 255, 255, 255);
+        buffer.setNormal(0.0f, 1.0f, 0.0f);
         buffer.addVertex(m, ax, ay, az);
+        buffer.setColor(0, 255, 255, 255);
+        buffer.setNormal(0.0f, 1.0f, 0.0f);
         buffer.addVertex(m, bx, by, bz);
     }
 }

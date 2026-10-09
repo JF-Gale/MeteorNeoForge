@@ -14,8 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ClickGUI: a grouped, color-coded module panel. Modules are laid out in
- * category cards across a grid; green = enabled, dark = disabled, click to toggle.
+ * ClickGUI: a compact dropdown-style module panel. A row of category buttons
+ * at the top; clicking a category reveals that category's module list below.
+ * Open with the configured key (right Shift) or with .ClickGUI.
  */
 public class ClickGUI extends Module {
 
@@ -33,7 +34,7 @@ public class ClickGUI extends Module {
 
     public static class ClickGuiScreen extends Screen {
 
-        private final java.util.List<int[]> catTitles = new java.util.ArrayList<>();
+        private Category selected = Category.COMBAT;
 
         public ClickGuiScreen() {
             super(Component.literal("MeteorNeoForge ClickGUI"));
@@ -41,42 +42,26 @@ public class ClickGUI extends Module {
 
         @Override
         protected void init() {
-            int margin = 8;
-            int pad = 6;
-            int top = 30;
-            int cols = 3;
-            int rows = 2;
-            int cw = (width - margin * 2 - pad * (cols - 1)) / cols;
-            int ch = (height - top - margin - pad * (rows - 1)) / rows;
+            buildUi();
+        }
 
-            for (Category cat : Category.values()) {
-                int idx = cat.ordinal();
-                int r = idx / cols;
-                int c = idx % cols;
-                int cx = margin + c * (cw + pad);
-                int cy = top + r * (ch + pad);
+        private void select(Category cat) {
+            selected = cat;
+            buildUi();
+        }
 
-                catTitles.add(new int[]{cx + 4, cy, idx});
-
-                List<Module> list = modulesOf(cat);
-                int count = list.size();
-                if (count == 0) {
-                    continue;
-                }
-                int bh = (ch - 18 - 8) / count;
-                if (bh > 22) {
-                    bh = 22;
-                }
-                if (bh < 14) {
-                    bh = 14;
-                }
-                int bx = cx + 4;
-                int bw = cw - 8;
-                int by = cy + 18;
-                for (Module m : list) {
-                    addRenderableWidget(new ToggleButton(m, bx, by, bw, bh));
-                    by += bh + 1;
-                }
+        private void buildUi() {
+            clearWidgets();
+            int bw = 92, bh = 16, gap = 2;
+            int x = 6, y = 6;
+            for (Category c : Category.values()) {
+                addRenderableWidget(new CatButton(c, this, x, y, bw, bh));
+                x += bw + gap;
+            }
+            int mx = 6, my = 30, mbw = 92, mbh = 13, mgap = 1;
+            for (Module m : modulesOf(selected)) {
+                addRenderableWidget(new ToggleButton(m, mx, my, mbw, mbh));
+                my += mbh + mgap;
             }
         }
 
@@ -90,50 +75,62 @@ public class ClickGUI extends Module {
             return out;
         }
 
-        private int countOf(Category cat) {
-            return modulesOf(cat).size();
-        }
-
         @Override
         public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
             super.render(guiGraphics, mouseX, mouseY, partialTick);
-            for (int[] t : catTitles) {
-                Category cat = Category.values()[t[2]];
-                guiGraphics.drawString(Minecraft.getInstance().font,
-                        Component.literal(ZhNames.cat(cat.getName()) + " (" + countOf(cat) + ")"),
-                        t[0], t[1], 0xFFB0BEC5);
-            }
         }
     }
 
-    /** A colored toggle button that reflects the module's enabled state. */
+    /** A small category tab at the top; the selected one is highlighted. */
+    private static class CatButton extends Button {
+
+        private final Category cat;
+        private final ClickGuiScreen screen;
+
+        CatButton(Category cat, ClickGuiScreen screen, int x, int y, int w, int h) {
+            super(x, y, w, h, Component.literal(ZhNames.cat(cat.getName())),
+                    b -> screen.select(cat), DEFAULT_NARRATION);
+            this.cat = cat;
+            this.screen = screen;
+        }
+
+        @Override
+        protected void renderWidget(GuiGraphics g, int mx, int my, float pt) {
+            boolean sel = screen.selected == cat;
+            int bg = sel ? 0xFF1565C0 : (isHovered() ? 0xFF455A64 : 0xFF37474F);
+            g.fill(getX(), getY(), getX() + getWidth(), getY() + getHeight(), bg);
+            g.fill(getX(), getY(), getX() + getWidth(), getY() + 1, 0xFF90A4AE);
+            g.drawCenteredString(Minecraft.getInstance().font,
+                    Component.literal(ZhNames.cat(cat.getName())),
+                    getX() + getWidth() / 2,
+                    getY() + (getHeight() - 8) / 2,
+                    0xFFFFFFFF);
+        }
+    }
+
+    /** A compact module toggle button reflecting the enabled state. */
     private static class ToggleButton extends Button {
 
         private final Module module;
 
-        ToggleButton(Module module, int x, int y, int w, int h) {
-            super(x, y, w, h, Component.literal(ZhNames.mod(module.getName())),
-                    b -> module.toggle(), DEFAULT_NARRATION);
-            this.module = module;
+        ToggleButton(Module m, int x, int y, int w, int h) {
+            super(x, y, w, h, Component.literal(ZhNames.mod(m.getName())),
+                    b -> m.toggle(), DEFAULT_NARRATION);
+            this.module = m;
         }
 
         @Override
-        protected void renderWidget(GuiGraphics g, int mouseX, int mouseY, float partialTick) {
+        protected void renderWidget(GuiGraphics g, int mx, int my, float pt) {
             boolean on = module.isEnabled();
-            int bg;
-            if (on) {
-                bg = isHovered() ? 0xFF2E7D32 : 0xFF1B5E20;
-            } else {
-                bg = isHovered() ? 0xFF546E7A : 0xFF37474F;
-            }
+            int bg = on ? (isHovered() ? 0xFF2E7D32 : 0xFF1B5E20)
+                        : (isHovered() ? 0xFF546E7A : 0xFF37474F);
             g.fill(getX(), getY(), getX() + getWidth(), getY() + getHeight(), bg);
             g.fill(getX(), getY(), getX() + getWidth(), getY() + 1, on ? 0xFF66BB6A : 0xFF90A4AE);
-            int txtCol = on ? 0xFFE8F5E9 : 0xFFECEFF1;
             g.drawCenteredString(Minecraft.getInstance().font,
                     Component.literal(ZhNames.mod(module.getName())),
                     getX() + getWidth() / 2,
-                    getY() + (getHeight() - 8) / 2,
-                    txtCol);
+                    getY() + (getHeight() - 7) / 2,
+                    on ? 0xFFE8F5E9 : 0xFFECEFF1);
         }
     }
 }

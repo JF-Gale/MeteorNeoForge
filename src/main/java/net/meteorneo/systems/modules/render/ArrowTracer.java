@@ -47,7 +47,11 @@ public class ArrowTracer extends Module {
             float ex = (float) (entity.getX() - camX);
             float ey = (float) (entity.getY() - camY);
             float ez = (float) (entity.getZ() - camZ);
+            buffer.setColor(0, 255, 255, 255);
+            buffer.setNormal(0.0f, 1.0f, 0.0f);
             buffer.addVertex(matrix, px, py, pz);
+            buffer.setColor(0, 255, 255, 255);
+            buffer.setNormal(0.0f, 1.0f, 0.0f);
             buffer.addVertex(matrix, ex, ey, ez);
         }
         buffers.endBatch();
