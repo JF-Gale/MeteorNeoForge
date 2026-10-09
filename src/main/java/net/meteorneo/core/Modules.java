@@ -14,6 +14,7 @@ import net.meteorneo.systems.modules.combat.BowAim;
 import net.meteorneo.systems.modules.combat.Criticals;
 import net.meteorneo.systems.modules.combat.HoleFiller;
 import net.meteorneo.systems.modules.combat.KillAura;
+import net.meteorneo.systems.modules.combat.Surround;
 import net.meteorneo.systems.modules.misc.Announcer;
 import net.meteorneo.systems.modules.misc.AutoFish;
 import net.meteorneo.systems.modules.misc.AutoLog;
@@ -23,6 +24,7 @@ import net.meteorneo.systems.modules.misc.Panic;
 import net.meteorneo.systems.modules.misc.Spammer;
 import net.meteorneo.systems.modules.movement.AirJump;
 import net.meteorneo.systems.modules.movement.AntiVoid;
+import net.meteorneo.systems.modules.movement.Blink;
 import net.meteorneo.systems.modules.movement.AutoJump;
 import net.meteorneo.systems.modules.movement.AutoWalk;
 import net.meteorneo.systems.modules.movement.BunnyHop;
@@ -85,6 +87,7 @@ public final class Modules {
     public static void init() {
         register(new AimAssist());
         register(new AirJump());
+        register(new Blink());
         register(new AirPlace());
         register(new AntiAFK());
         register(new AntiAim());
@@ -130,6 +133,7 @@ public final class Modules {
         register(new Fullbright());
         register(new HoleFiller());
         register(new KillAura());
+        register(new Surround());
         register(new ChestStealer());
         register(new Sneak());
         register(new GhostHand());
