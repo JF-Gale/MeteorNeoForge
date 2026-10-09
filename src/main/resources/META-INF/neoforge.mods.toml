@@ -10,7 +10,7 @@ displayName="Meteor NeoForge"
 authors="meteorneo"
 description='''
 A from-scratch NeoForge 1.21.1 re-implementation of a Meteor-style module system.
-First milestone: module framework + Movement modules (Flight / Speed / Sprint).
+Combat / Movement / Render / Player / World / Misc - 107 modules. Use .ModuleName in chat or ClickGUI to toggle.
 '''
 
 [[dependencies.meteor_neoforge]]
@@ -23,6 +23,6 @@ side="CLIENT"
 [[dependencies.meteor_neoforge]]
 modId="minecraft"
 type="required"
-versionRange="[1.21.1,1.21.1]"
+versionRange="[1.21.1,1.22)"
 ordering="NONE"
 side="CLIENT"
