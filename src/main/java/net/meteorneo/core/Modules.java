@@ -1,6 +1,7 @@
 package net.meteorneo.core;
 
 import net.meteorneo.systems.modules.combat.AimAssist;
+import net.meteorneo.systems.modules.combat.AnchorAura;
 import net.meteorneo.systems.modules.combat.AntiAim;
 import net.meteorneo.systems.modules.combat.AntiAnvil;
 import net.meteorneo.systems.modules.combat.AntiBed;
@@ -13,6 +14,7 @@ import net.meteorneo.systems.modules.combat.AutoWeb;
 import net.meteorneo.systems.modules.combat.BedAura;
 import net.meteorneo.systems.modules.combat.BowAim;
 import net.meteorneo.systems.modules.combat.Criticals;
+import net.meteorneo.systems.modules.combat.CrystalAura;
 import net.meteorneo.systems.modules.combat.HoleFiller;
 import net.meteorneo.systems.modules.combat.KillAura;
 import net.meteorneo.systems.modules.combat.Surround;
@@ -88,6 +90,7 @@ public final class Modules {
     /** Bootstrap: register every module instance. */
     public static void init() {
         register(new AimAssist());
+        register(new AnchorAura());
         register(new AirJump());
         register(new Blink());
         register(new AirPlace());
@@ -130,6 +133,7 @@ public final class Modules {
         register(new BowAim());
         register(new BunnyHop());
         register(new Criticals());
+        register(new CrystalAura());
         register(new ElytraFly());
         register(new FastUse());
         register(new Flight());
