@@ -3,6 +3,9 @@ package net.meteorneo;
 import net.meteorneo.core.Modules;
 import net.meteorneo.core.Module;
 import net.meteorneo.systems.modules.misc.ClickGUI;
+import net.meteorneo.systems.modules.misc.Give;
+import net.meteorneo.systems.modules.player.Enchant;
+import net.meteorneo.systems.modules.player.Gamemode;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.neoforged.bus.api.IEventBus;
@@ -83,14 +86,41 @@ public class MeteorNeoForge {
             return;
         }
         String cmd = msg.substring(1).trim();
+        if (cmd.isEmpty()) {
+            return;
+        }
         String[] parts = cmd.split(" ", 2);
         String name = parts[0];
+        String arg = parts.length > 1 ? parts[1].trim() : "";
+        Minecraft mc = Minecraft.getInstance();
+        // Special functional commands (gamemode / enchant / give) take arguments.
+        if (handleSpecial(mc, name, arg)) {
+            event.setCanceled(true);
+            return;
+        }
+        // Otherwise toggle a module by its English name.
         for (Module m : Modules.getAll()) {
             if (m.getName().equalsIgnoreCase(name)) {
                 m.toggle();
                 event.setCanceled(true);
                 return;
             }
+        }
+    }
+
+    private boolean handleSpecial(Minecraft mc, String name, String arg) {
+        switch (name.toLowerCase()) {
+            case "gamemode":
+            case "gm":
+                return Gamemode.apply(mc, arg);
+            case "enchant":
+            case "ench":
+                return Enchant.apply(mc, arg);
+            case "give":
+            case "g":
+                return Give.apply(mc, arg);
+            default:
+                return false;
         }
     }
 }

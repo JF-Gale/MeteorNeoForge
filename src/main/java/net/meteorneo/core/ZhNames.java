@@ -101,6 +101,8 @@ public final class ZhNames {
         MOD.put("NoBreakDelay", "无破坏延迟");
         MOD.put("NoInteract", "免交互");
         MOD.put("Reach", "触及距离");
+        MOD.put("Gamemode", "游戏模式");
+        MOD.put("Enchant", "附魔");
         MOD.put("Sneak", "潜行");
         MOD.put("XCarry", "跨背包");
 
@@ -131,6 +133,7 @@ public final class ZhNames {
         MOD.put("Profiler", "分析器");
         MOD.put("Spammer", "刷屏");
         MOD.put("Discord", "Discord");
+        MOD.put("Give", "给予");
         MOD.put("Panic", "恐慌");
     }
 
