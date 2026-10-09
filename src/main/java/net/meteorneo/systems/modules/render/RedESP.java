@@ -41,7 +41,7 @@ public class RedESP extends Module {
                     BlockPos pos = center.offset(dx, dy, dz);
                     BlockState state = mc.level.getBlockState(pos);
                     if (state.is(Blocks.REDSTONE_WIRE) || state.is(Blocks.REDSTONE_BLOCK)
-                            || state.is(Blocks.REDSTONE_REPEATER) || state.is(Blocks.REDSTONE_COMPARATOR)) {
+                            || state.is(Blocks.REPEATER) || state.is(Blocks.COMPARATOR)) {
                         drawBox(buffer, matrix,
                                 (float) (pos.getX() - camX), (float) (pos.getY() - camY), (float) (pos.getZ() - camZ),
                                 (float) (pos.getX() + 1 - camX), (float) (pos.getY() + 1 - camY), (float) (pos.getZ() + 1 - camZ));
