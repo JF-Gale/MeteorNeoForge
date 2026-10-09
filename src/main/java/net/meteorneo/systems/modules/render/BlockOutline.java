@@ -6,12 +6,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.core.BlockPos;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.BufferBuilder;
-import com.mojang.blaze3d.vertex.DefaultVertexFormat;
-import com.mojang.blaze3d.vertex.Tesselator;
-import com.mojang.blaze3d.vertex.VertexFormat;
-import com.mojang.blaze3d.systems.RenderSystem;
-import net.minecraft.client.renderer.GameRenderer;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
 import org.joml.Matrix4f;
 
 /**
@@ -40,41 +37,33 @@ public class BlockOutline extends Module {
         poseStack.pushPose();
         poseStack.translate(pos.getX() - camX, pos.getY() - camY, pos.getZ() - camZ);
 
-        RenderSystem.setShader(() -> GameRenderer.getPositionShader());
-        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
-        RenderSystem.disableDepthTest();
-        RenderSystem.disableCull();
-
+        MultiBufferSource.BufferSource buffers = mc.renderBuffers().bufferSource();
+        VertexConsumer buffer = buffers.getBuffer(RenderType.lines());
         Matrix4f matrix = poseStack.last().pose();
-        Tesselator tess = Tesselator.getInstance();
-        BufferBuilder buf = tess.getBuilder();
-        buf.begin(VertexFormat.Mode.LINES, DefaultVertexFormat.POSITION);
 
         // Bottom face
-        addLine(buf, matrix, 0, 0, 0, 1, 0, 0);
-        addLine(buf, matrix, 1, 0, 0, 1, 0, 1);
-        addLine(buf, matrix, 1, 0, 1, 0, 0, 1);
-        addLine(buf, matrix, 0, 0, 1, 0, 0, 0);
+        addLine(buffer, matrix, 0, 0, 0, 1, 0, 0);
+        addLine(buffer, matrix, 1, 0, 0, 1, 0, 1);
+        addLine(buffer, matrix, 1, 0, 1, 0, 0, 1);
+        addLine(buffer, matrix, 0, 0, 1, 0, 0, 0);
         // Top face
-        addLine(buf, matrix, 0, 1, 0, 1, 1, 0);
-        addLine(buf, matrix, 1, 1, 0, 1, 1, 1);
-        addLine(buf, matrix, 1, 1, 1, 0, 1, 1);
-        addLine(buf, matrix, 0, 1, 1, 0, 1, 0);
+        addLine(buffer, matrix, 0, 1, 0, 1, 1, 0);
+        addLine(buffer, matrix, 1, 1, 0, 1, 1, 1);
+        addLine(buffer, matrix, 1, 1, 1, 0, 1, 1);
+        addLine(buffer, matrix, 0, 1, 1, 0, 1, 0);
         // Vertical edges
-        addLine(buf, matrix, 0, 0, 0, 0, 1, 0);
-        addLine(buf, matrix, 1, 0, 0, 1, 1, 0);
-        addLine(buf, matrix, 1, 0, 1, 1, 1, 1);
-        addLine(buf, matrix, 0, 0, 1, 0, 1, 1);
+        addLine(buffer, matrix, 0, 0, 0, 0, 1, 0);
+        addLine(buffer, matrix, 1, 0, 0, 1, 1, 0);
+        addLine(buffer, matrix, 1, 0, 1, 1, 1, 1);
+        addLine(buffer, matrix, 0, 0, 1, 0, 1, 1);
 
-        tess.end();
-        RenderSystem.enableCull();
-        RenderSystem.enableDepthTest();
+        buffers.endBatch();
 
         poseStack.popPose();
     }
 
-    private void addLine(BufferBuilder buf, Matrix4f matrix, float x1, float y1, float z1, float x2, float y2, float z2) {
-        buf.vertex(matrix, x1, y1, z1).endVertex();
-        buf.vertex(matrix, x2, y2, z2).endVertex();
+    private void addLine(VertexConsumer buffer, Matrix4f matrix, float x1, float y1, float z1, float x2, float y2, float z2) {
+        buffer.vertex(matrix, x1, y1, z1).endVertex();
+        buffer.vertex(matrix, x2, y2, z2).endVertex();
     }
 }

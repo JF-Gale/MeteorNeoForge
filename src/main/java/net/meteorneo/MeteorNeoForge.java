@@ -36,6 +36,7 @@ public class MeteorNeoForge {
             return;
         }
         Minecraft mc = Minecraft.getInstance();
-        Modules.renderWorld(mc, event.getPoseStack(), event.getPartialTick());
+        float partialTick = event.getPartialTick().getGameTimeDeltaTicks();
+        Modules.renderWorld(mc, event.getPoseStack(), partialTick);
     }
 }
