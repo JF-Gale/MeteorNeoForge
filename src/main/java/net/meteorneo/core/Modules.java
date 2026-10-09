@@ -29,6 +29,7 @@ import net.meteorneo.systems.modules.misc.Commands;
 import net.meteorneo.systems.modules.misc.Friend;
 import net.meteorneo.systems.modules.misc.Notifications;
 import net.meteorneo.systems.modules.misc.Panic;
+import net.meteorneo.systems.modules.misc.Profiler;
 import net.meteorneo.systems.modules.misc.Spammer;
 import net.meteorneo.systems.modules.misc.Discord;
 import net.meteorneo.systems.modules.movement.AirJump;
@@ -85,6 +86,7 @@ import net.meteorneo.systems.modules.render.HoleESP;
 import net.meteorneo.systems.modules.render.ItemESP;
 import net.meteorneo.systems.modules.render.LogoutSpots;
 import net.meteorneo.systems.modules.render.PlayerESP;
+import net.meteorneo.systems.modules.render.RedESP;
 import net.meteorneo.systems.modules.render.Search;
 import net.meteorneo.systems.modules.render.StorageESP;
 import net.meteorneo.systems.modules.render.Tracer;
@@ -194,6 +196,7 @@ public final class Modules {
         register(new ItemESP());
         register(new LogoutSpots());
         register(new PlayerESP());
+        register(new RedESP());
         register(new Search());
         register(new StorageESP());
         register(new Tracer());
@@ -224,6 +227,7 @@ public final class Modules {
         register(new Step());
         register(new Strafe());
         register(new Spammer());
+        register(new Profiler());
         register(new Discord());
         register(new Panic());
     }
